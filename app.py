@@ -2,7 +2,7 @@ import os
 from openai import OpenAI
 import streamlit as st
 
-os.environ["OPENAI_API_KEY"] = "sk-proj-gPPoMvDVBOMCp0hXTpkNT3BlbkFJOXduQLtuhYeEw2AbciTY"
+os.environ["OPENAI_API_KEY"] = st.secrets['API_KEY']
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 st.title('홍보 포스터 만들기😍')
@@ -23,6 +23,14 @@ if st.button('생성하기'):
                 }
             ],
             model="gpt-4o",
+        )
+
+      response = client.images.generate(
+            model="dall-e-3",
+            prompt=keyword,
+            size="1024x1024",
+            quality="standard",
+            n=1
         )
 
     result = chat_completion.choices[0].message.content
