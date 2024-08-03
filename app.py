@@ -5,7 +5,7 @@ import streamlit as st
 os.environ["OPENAI_API_KEY"] = "sk-proj-gPPoMvDVBOMCp0hXTpkNT3BlbkFJOXduQLtuhYeEw2AbciTY"
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
-st.title('슈퍼 시나리오 봇🥸')
+st.title('슈퍼 시나리오 봇😍')
 
 keyword = st.text_input("키워드를 입력하세요")
 
